@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { ShieldCheck, LogOut, User as UserIcon, LayoutDashboard } from 'lucide-react';
+import { ShieldCheck, LogOut, User as UserIcon, LayoutDashboard, Target } from 'lucide-react';
 
 export default function Navbar() {
   const { user, isAuthenticated, logout } = useAuth();
@@ -32,7 +32,7 @@ export default function Navbar() {
           </Link>
 
           {/* Navigation Actions */}
-          <div className="flex items-center space-x-3 sm:space-x-4">
+          <div className="flex items-center space-x-2 sm:space-x-3">
             {isAuthenticated ? (
               <>
                 <Link
@@ -41,6 +41,14 @@ export default function Navbar() {
                 >
                   <LayoutDashboard className="w-4 h-4 text-emerald-400" />
                   <span className="hidden sm:inline">Dashboard</span>
+                </Link>
+
+                <Link
+                  to="/habits"
+                  className="flex items-center space-x-1.5 px-3 py-1.5 text-sm font-medium text-emerald-300 hover:text-emerald-200 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 border border-emerald-500/20 transition-colors"
+                >
+                  <Target className="w-4 h-4 text-emerald-400" />
+                  <span>Habits</span>
                 </Link>
 
                 <div className="hidden md:flex items-center space-x-2 pl-2 border-l border-slate-800">

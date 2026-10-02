@@ -7,6 +7,7 @@ dotenv.config();
 
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const habitRoutes = require('./routes/habitRoutes');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 const app = express();
@@ -40,6 +41,9 @@ app.get('/api/health', (req, res) => {
 
 // Authentication routes
 app.use('/api/auth', authRoutes);
+
+// Protected Habit tracking routes
+app.use('/api/habits', habitRoutes);
 
 // Fallback 404 and Error handling middlewares
 app.use(notFound);

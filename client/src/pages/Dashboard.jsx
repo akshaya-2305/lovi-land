@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import api from '../api/axios';
 import {
@@ -14,6 +15,7 @@ import {
   Layers,
   Server,
   Lock,
+  Target,
 } from 'lucide-react';
 
 export default function Dashboard() {
@@ -91,7 +93,15 @@ export default function Dashboard() {
             </p>
           </div>
 
-          <div className="flex items-center space-x-3">
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              to="/habits"
+              className="flex items-center space-x-2 px-4 py-2.5 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-slate-950 font-semibold text-sm transition-all shadow-lg shadow-emerald-500/20"
+            >
+              <Target className="w-4 h-4" />
+              <span>Open Habits Tracker</span>
+            </Link>
+
             <button
               onClick={fetchFreshProfile}
               disabled={refreshing}

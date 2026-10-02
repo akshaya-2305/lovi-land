@@ -6,6 +6,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Habits from './pages/Habits';
 import NotFound from './pages/NotFound';
 
 // Redirect authenticated users away from Login and Register pages
@@ -40,6 +41,16 @@ export default function App() {
                 element={
                   <ProtectedRoute>
                     <Dashboard />
+                  </ProtectedRoute>
+                }
+              />
+
+              {/* Protected Habits Tracker Route */}
+              <Route
+                path="/habits"
+                element={
+                  <ProtectedRoute>
+                    <Habits />
                   </ProtectedRoute>
                 }
               />
